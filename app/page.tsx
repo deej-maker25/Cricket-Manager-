@@ -1,16 +1,16 @@
  "use client";
 
 import { useEffect, useState } from "react";
-import Dashboard from "@/components/Dashboard";
-import Inbox from "@/components/Inbox";
-import SquadTable from "@/components/SquadTable";
-import Transfers from "@/components/Transfers";
-import Staff from "@/components/Staff";
-import Facilities from "@/components/Facilities";
-import Finances from "@/components/Finances";
-import Tactics from "@/components/Tactics";
-import LeagueTable from "@/components/LeagueTable";
-import AshesMode from "@/components/AshesMode";
+import Dashboard from "../Dashboard";
+import Inbox from "../Inbox";
+import SquadTable from "../SquadTable";
+import Transfers from "../Transfers";
+import Staff from "../Staff";
+import Facilities from "../Facilities";
+import Finances from "../Finances";
+import Tactics from "../Tactics";
+import LeagueTable from "../LeagueTable";
+import AshesMode from "../AshesMode";
 import { clearSave, exportSave, importSave, loadGame, saveGame } from "@/lib/storage";
 import { advanceWeek, finalLegacyScore, newGame, verdict, youthPull } from "@/lib/gameLogic";
 import { GameState, Tab } from "@/lib/types";
