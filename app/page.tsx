@@ -2,22 +2,22 @@
 
 import { useEffect, useState } from "react";
 
-import Dashboard from "../Dashboard";
-import Inbox from "../Inbox";
-import SquadTable from "../SquadTable";
-import Transfers from "../Transfers";
-import Staff from "../Staff";
-import Facilities from "../Facilities";
-import Finances from "../Finances";
-import Tactics from "../Tactics";
-import LeagueTable from "../LeagueTable";
-import AshesMode from "../AshesMode";
+import Dashboard from "../components/Dashboard";
+import Inbox from "../components/Inbox";
+import SquadTable from "../components/SquadTable";
+import Transfers from "../components/Transfers";
+import Staff from "../components/Staff";
+import Facilities from "../components/Facilities";
+import Finances from "../components/Finances";
+import Tactics from "../components/Tactics";
+import LeagueTable from "../components/LeagueTable";
+import AshesMode from "../components/AshesMode";
 
-import { clearSave, exportSave, importSave, loadGame, saveGame } from "../storage";
-import { advanceWeek, finalLegacyScore, newGame, verdict, youthPull } from "../gameLogic";
-import { GameState, Tab } from "../types";
-import { DIVISIONS } from "../constants";
-import { money } from "../utils";
+import { clearSave, exportSave, importSave, loadGame, saveGame } from "../lib/storage";
+import { advanceWeek, finalLegacyScore, newGame, verdict, youthPull } from "../lib/gameLogic";
+import { GameState, Tab } from "../lib/types";
+import { DIVISIONS } from "../lib/constants";
+import { money } from "../lib/utils";
 
 const tabs: Tab[] = [
   "Dashboard",
@@ -53,7 +53,6 @@ export default function Page() {
       <main className="min-h-screen p-6">
         <div className="card mx-auto max-w-3xl p-8">
           <h1 className="text-4xl font-black">Cricket Chairman</h1>
-
           <p className="mt-3 text-emerald-100/85">
             Take a tiny village cricket club up the pyramid, survive the finances,
             build a county giant, then maybe select England for the Ashes.
@@ -66,7 +65,6 @@ export default function Page() {
               onChange={(e) => setClubName(e.target.value)}
               placeholder="Club name"
             />
-
             <button className="btn" onClick={() => setState(newGame(clubName))}>
               Start Save
             </button>
@@ -138,12 +136,9 @@ export default function Page() {
         {state.phase === "complete" && (
           <div className="card mb-5 p-6">
             <h2 className="text-3xl font-black">Save Complete</h2>
-
             <p className="mt-2 text-xl">
-              Legacy Score: {score} · Verdict:{" "}
-              <b>{verdict(score, ashesWon)}</b>
+              Legacy Score: {score} · Verdict: <b>{verdict(score, ashesWon)}</b>
             </p>
-
             <p className="text-emerald-200">
               Promotions {state.club.promotions} · Relegations{" "}
               {state.club.relegations} · Trophies {state.club.trophies.length} ·
@@ -157,29 +152,19 @@ export default function Page() {
         )}
 
         {tab === "Inbox" && <Inbox state={state} setState={setState} />}
-
         {tab === "Squad" && <SquadTable state={state} setState={setState} />}
-
         {tab === "Transfers" && <Transfers state={state} setState={setState} />}
-
         {tab === "Contracts" && <SquadTable state={state} setState={setState} />}
-
         {tab === "Staff" && <Staff state={state} setState={setState} />}
-
         {tab === "Tactics" && <Tactics state={state} setState={setState} />}
-
         {tab === "Facilities" && <Facilities state={state} setState={setState} />}
-
         {tab === "Finances" && <Finances state={state} setState={setState} />}
-
         {tab === "League" && <LeagueTable state={state} />}
-
         {tab === "Ashes" && <AshesMode state={state} setState={setState} />}
 
         <section className="mt-5 grid gap-4 lg:grid-cols-2">
           <div className="card p-4">
             <h3 className="font-black">Board Log</h3>
-
             <div className="mt-2 max-h-64 space-y-1 overflow-auto text-sm text-emerald-100/80">
               {state.eventLog.slice(0, 80).map((event, index) => (
                 <p key={`${event}-${index}`}>• {event}</p>
@@ -189,7 +174,6 @@ export default function Page() {
 
           <div className="card p-4">
             <h3 className="font-black">Import Save JSON</h3>
-
             <textarea
               className="input mt-2 h-28 w-full"
               value={importBox}
