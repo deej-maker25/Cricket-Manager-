@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+body { background: #06120d; color: #ecfdf5; }
+.card { @apply rounded-2xl border border-emerald-900/70 bg-emerald-950/40 shadow-xl shadow-black/30; }
+.btn { @apply rounded-xl bg-emerald-500 px-3 py-2 text-sm font-bold text-emerald-950 hover:bg-emerald-400 disabled:opacity-40 disabled:hover:bg-emerald-500; }
+.btn2 { @apply rounded-xl border border-emerald-700 bg-emerald-950 px-3 py-2 text-sm font-semibold text-emerald-50 hover:bg-emerald-900 disabled:opacity-40; }
+.btnDanger { @apply rounded-xl bg-red-500 px-3 py-2 text-sm font-bold text-red-950 hover:bg-red-400; }
+.pill { @apply rounded-full border border-emerald-800 bg-emerald-950/80 px-2 py-1 text-xs text-emerald-100; }
+.input { @apply rounded-xl border border-emerald-800 bg-emerald-950 px-3 py-2 text-emerald-50 outline-none focus:border-emerald-400; }
+th { @apply text-left text-xs font-bold uppercase tracking-wider text-emerald-300; }
+td { @apply border-t border-emerald-900/70 py-2 pr-3 text-sm; }
