@@ -1,6 +1,6 @@
 # Cricket Chairman
 
-A Vercel-ready Next.js cricket club chairman simulation.
+A Vercel-ready Next.js cricket club chairman simulation..
 
 You start as a tiny village cricket club and try to climb into the County Championship. If you win Division One, England Selector / Ashes mode unlocks.
 
